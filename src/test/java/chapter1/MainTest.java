@@ -2,16 +2,16 @@ package chapter1;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 public class MainTest {
     @Test
     public void 文字列がすべてユニークである() {
-        assertTrue(Main.isUnique("hoge"));
-        assertFalse(Main.isUnique("foo"));
-        assertFalse(Main.isUnique("ooo"));
-        assertFalse(Main.isUnique("foaaaaao"));
-        assertFalse(Main.isUnique("ababagagaga"));
+        assertThat(true, is(Main.isUnique("hoge")));
+        assertThat(true, is(Main.isUnique("h")));
+        assertThat(false, is(Main.isUnique("aa")));
+        assertThat(false, is(Main.isUnique("aba")));
+        assertThat(false, is(Main.isUnique("baa")));
     }
 }
