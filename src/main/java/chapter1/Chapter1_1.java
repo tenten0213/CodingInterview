@@ -1,6 +1,6 @@
 package chapter1;
 
-public class Main {
+public class Chapter1_1 {
     public static boolean isUnique(String target) {
         char[] chars = target.toCharArray();
         for(int index = 0; index < chars.length; index++) {
