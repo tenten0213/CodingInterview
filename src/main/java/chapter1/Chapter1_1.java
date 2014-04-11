@@ -10,4 +10,8 @@ public class Chapter1_1 {
         }
         return true;
     }
+
+    public static boolean isUnique_java8(String target) {
+        return target.chars().distinct().count() == target.length();
+    }
 }
