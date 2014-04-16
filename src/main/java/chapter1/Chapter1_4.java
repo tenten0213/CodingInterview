@@ -6,7 +6,8 @@ import java.util.Arrays;
 public class Chapter1_4 {
     public static String replaceSpacesBuffer(Character[] chars, int length) {
 
-        int encodedCharsLength = length + ((int) Arrays.asList(chars).stream()
+        int encodedCharsLength = length + ((int) Arrays.asList(chars)
+                .stream()
                 .filter(s -> s.equals(' '))
                 .count()) * 2;
 
