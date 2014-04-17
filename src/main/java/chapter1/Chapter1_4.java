@@ -1,22 +1,25 @@
 package chapter1;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import java.nio.CharBuffer;
 import java.util.Arrays;
 
 public class Chapter1_4 {
-    public static String replaceSpacesBuffer(Character[] chars, int length) {
+    public static String replaceSpacesBuffer(char[] chars, int length) {
 
-        int encodedCharsLength = length + ((int) Arrays.asList(chars)
+        Character[] characters = ArrayUtils.toObject(chars);
+        int encodedCharsLength = length + ((int) Arrays.asList(characters)
                 .stream()
                 .filter(s -> s.equals(' '))
                 .count()) * 2;
 
         CharBuffer buffer = CharBuffer.allocate(encodedCharsLength);
         for(int i = 0; i < length; i++) {
-            if(chars[i] == ' ') {
+            if(characters[i] == ' ') {
                 buffer.put("%20");
             } else {
-                buffer.put(chars[i]);
+                buffer.put(characters[i]);
             }
         }
         buffer.flip();
